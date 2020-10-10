@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <!-- <div *ngIf="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of oddNumbers"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{background: odd % 2 !== 0 ? 'yellow' : 'transparent'}">
+            {{ odd }}
+          </li>
+        </div>
+        <div  *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let even of evenNumbers"
+            [ngClass]="{odd: even % 2 !== 0}"
+            [ngStyle]="{background: even % 2 !== 0 ? 'yellow' : 'transparent'}">
+            {{ even }}
+          </li>
+        </div> -->
+        <p>test stractual directive</p>
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            *ngFor="let odd of oddNumbers"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{background: odd % 2 !== 0 ? 'yellow' : 'transparent'}">
+            {{ odd }}
+          </li>
+        </div>
+      </ul>
+      <p>The Switch Value</p>
+      <div [ngSwitch]="switchValue">
+        <p *ngSwitchCase="10">The value is 10</p>
+        <p *ngSwitchCase="100">The value is 100</p>
+        <p *ngSwitchCase="1000">The value is 1000</p>
+        <p *ngSwitchDefault>The value is Default</p>
+      </div>
+      <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template>
+      <p appBasicHighlight>Try the basic highlight directive</p>
+      <p appBetterHighlight  [highlightColor]="'pink'" [defaultColor]="'gray'">Try the BETTER highlight directive</p>
+    </div>
+  </div>
+</div>
